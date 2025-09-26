@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background-color: #f4f7f6; 
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        .widget { 
+            background: white; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+        .widget:hover {
+            transform: translateY(-5px);
+        }
+        #processStatus p {
+            margin: 10px 0;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .status-dot {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>📊 Raspberry Pi Zero 2 W Dashboard</h1>
+
+    <div class="dashboard-grid">
+        <div class="widget">
+            <h2>CPU Performance</h2>
+            <canvas id="mainChart"></canvas>
+        </div>
+        <div class="widget">
+            <h2>RAM Usage</h2>
+            <canvas id="ramChart"></canvas>
+        </div>
+        <div class="widget">
+            <h2>Processes Status</h2>
+            <div id="processStatus">Waiting for data...</div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    
+    <script type="module" src="app.js"></script>
+</body>
+</html>

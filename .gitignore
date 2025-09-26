@@ -1,0 +1,7 @@
+# Firebase Credentials
+firebase-config.js
+.env
+
+
+# Node modules
+/node_modules
